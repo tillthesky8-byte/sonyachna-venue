@@ -22,17 +22,13 @@ public class PortfolioManager(decimal initialCash, ILogger<PortfolioManager> log
 
     public void OnOrderFilledEvent(object sender, OrderEvent orderEvent)
     {
-        _currentCash -= orderEvent.Commission;
 
         var order = orderEvent.Order;
         var q = orderEvent.FillQuantity;
         var p = orderEvent.FillPrice;
         var symbol = order.Symbol;
 
-
-        decimal qtyChange = order.Direction == OrderDirection.Buy ? q : -q;
-        decimal cashChange = -qtyChange * p;
-        _currentCash += cashChange;
+        var qtyChange = PayForOrderAndGetQuantity(order, p, q, orderEvent.Commission);
 
         if (!_activePositions.TryGetValue(symbol, out var position))
         {
@@ -41,38 +37,36 @@ public class PortfolioManager(decimal initialCash, ILogger<PortfolioManager> log
                 Symbol = symbol,
                 Quantity = qtyChange,
                 AverageEntryPrice = p,
-                CurrentPrice = p
+                CurrentPrice = p,
             };
 
             _activePositions[symbol] = position;
+            _lastEntryTime[symbol] = orderEvent.Timestamp;
+            return;
         }
 
-        if (!(position.Quantity > 0 && qtyChange < 0 || position.Quantity < 0 && qtyChange > 0))
+        bool orderIncreasesPosition = !(
+            position.Quantity > 0 && qtyChange < 0 || // closing or flipping long
+            position.Quantity < 0 && qtyChange > 0    // closing or flipping short
+        );
+
+        if (orderIncreasesPosition)
         {
-            var totalCost = position.AverageEntryPrice * Math.Abs(position.Quantity) + p * Math.Abs(qtyChange);
-            var totalQty = Math.Abs(position.Quantity) + Math.Abs(qtyChange);
-            position.AverageEntryPrice = totalCost / totalQty;
-            position.Quantity += qtyChange;
+            position.AverageEntryPrice = UpdateAverageEntryPrice(position, p, qtyChange);
+            position.Quantity += qtyChange; // add to the existing position
+            _lastEntryTime[symbol] = orderEvent.Timestamp;
         }
         else
         {
-            var closedQty = Math.Min(Math.Abs(position.Quantity), Math.Abs(qtyChange));
-            var remainingChange = qtyChange - closedQty * Math.Sign(qtyChange);
-            var realizedPnl = position.IsLong ?
-                closedQty * (p - position.AverageEntryPrice) :
-                closedQty * (position.AverageEntryPrice - p);
 
-            _tradeHistory.Add(new TradeRecord
-            {
-                Symbol = symbol,
-                EntryTime = _lastEntryTime.ContainsKey(symbol) ? _lastEntryTime[symbol] : DateTime.MinValue,
-                ExitTime = orderEvent.Timestamp,
-                EntryPrice = position.AverageEntryPrice,
-                ExitPrice = p,
-                Quantity = closedQty,
-                ComissionPaid = orderEvent.Commission
-            });
-            position.Quantity += closedQty * Math.Sign(qtyChange);
+            var remainingChange = ClosePortionOfPosition
+            (
+                position: position,
+                quantityToClose: Math.Abs(qtyChange),
+                entryTime: _lastEntryTime[symbol],
+                exitTime: orderEvent.Timestamp,
+                exitPrice: p,
+                commission: orderEvent.Commission);
 
             if (remainingChange != 0)
             {
@@ -91,5 +85,37 @@ public class PortfolioManager(decimal initialCash, ILogger<PortfolioManager> log
         {
             position.CurrentPrice = row.Close;
         }
+    }
+
+    public decimal PayForOrderAndGetQuantity(Order order, decimal price, decimal quantity, decimal commission)
+    {
+        _currentCash -= commission + price * quantity;
+        var qtyChange = order.Direction == OrderDirection.Buy ? quantity : -quantity;
+        return qtyChange;
+    }
+
+    public decimal UpdateAverageEntryPrice(Position position, decimal fillPrice, decimal qtyChange)
+    {
+        var totalCost = position.AverageEntryPrice * Math.Abs(position.Quantity) + fillPrice * Math.Abs(qtyChange);
+        var totalQty = Math.Abs(position.Quantity) + Math.Abs(qtyChange);
+        return totalCost / totalQty;
+    }
+
+    public decimal ClosePortionOfPosition(Position position, decimal quantityToClose, DateTime entryTime, DateTime exitTime, decimal exitPrice, decimal commission)
+    {
+        var closedPortion = Math.Min(Math.Abs(position.Quantity), quantityToClose);
+        _tradeHistory.Add(new TradeRecord
+        {
+            Symbol = position.Symbol,
+            EntryTime = entryTime,
+            ExitTime = exitTime,
+            EntryPrice = position.AverageEntryPrice,
+            ExitPrice = exitPrice,
+            Quantity = closedPortion,
+            Direction = position.IsLong ? OrderDirection.Buy : OrderDirection.Sell,
+            CommissionPaid = commission
+        });
+        position.Quantity -= closedPortion * Math.Sign(position.Quantity);
+        return quantityToClose - closedPortion;
     }
 }

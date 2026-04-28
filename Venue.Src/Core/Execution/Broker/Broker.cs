@@ -56,7 +56,7 @@ public class Broker(ISlippageModel slippageModel, ILogger<Broker> logger, decima
     public void ProcessOrders(ProcessedDataRow row)
     {
         if (_activeOrders.Count == 0) return;
-        // var ordersToProcess = _activeOrders.Where(o => o.Symbol == dataUpdate.Symbol).ToList(); //later
+
         var filledOrders = new List<Order>();
         foreach (var order in _activeOrders)
         {
@@ -69,6 +69,7 @@ public class Broker(ISlippageModel slippageModel, ILogger<Broker> logger, decima
                     var executionPrice = _slippageMode.GetExecutionPrice(order, row);
                     FillOrder(order, executionPrice, order.UnfilledQuantity, row.Timestamp);
                     break;
+                    
                 case OrderType.Limit:
                      if (order.Direction == OrderDirection.Buy && row.Low <= order.LimitPrice)
                     {
