@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Venue.Src/Venue.Src.csproj" />
+  <Project Path="Venue.Tests/Venue.Tests.csproj" />
+</Solution>
