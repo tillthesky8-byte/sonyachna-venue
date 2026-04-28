@@ -10,8 +10,8 @@ public class Simulator(ILogger<Simulator> logger) : ISimulator
         _logger.LogInformation("Simulator started with {Count} data points.", dataStream.Count());
         foreach (var tick in dataStream)
         {
-            _logger.LogDebug("Processing tick at {Timestamp}: O={Open}, H={High}, L={Low}, C={Close}, V={Volume}, Spread={Spread}",
-                tick.Timestamp, tick.Open, tick.High, tick.Low, tick.Close, tick.Volume, tick.Spread);
+            _logger.LogDebug("Processing tick at {Timestamp}: O={Open}, H={High}, L={Low}, C={Close}, V={Volume}, Spread={Spread}, UsInterestRate={InterestRate}",
+                tick.Timestamp, tick.Open, tick.High, tick.Low, tick.Close, tick.Volume, tick.Spread, tick.Externals["us_interest_rate"]);
         }
         _logger.LogInformation("Simulator finished processing data stream.");
     }
