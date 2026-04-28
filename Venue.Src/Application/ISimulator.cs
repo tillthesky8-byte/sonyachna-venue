@@ -1,0 +1,7 @@
+// Src/Application/ISimulator.cs
+using Venue.Src.Domain;
+namespace Venue.Src.Application;
+public interface ISimulator
+{
+    void Run(IEnumerable<ProcessedDataRow> processedDataPoints);
+}
