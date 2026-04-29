@@ -1,6 +1,5 @@
 // Src/Indicators/Library/SMA.cs
 using Venue.Src.Domain;
-using Venue.Src.Indicators;
 namespace Venue.Src.Indicators.Library;
 public class SMA : IIndicator
 {
