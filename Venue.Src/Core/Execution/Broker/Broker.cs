@@ -63,15 +63,16 @@ public class Broker(ISlippageModel slippageModel, ILogger<Broker> logger, decima
             var tradableQuantity = _slippageMode.GetVolumeConstraint(order, row);
             if (tradableQuantity <= 0) _logger.LogWarning("Volume constraint is zero or negative at timestamp {Timestamp}. No orders will be filled.", row.Timestamp);
             if (order.UnfilledQuantity <= 0) continue;
+            
             switch (order.Type)
             {
                 case OrderType.Market:
                     var executionPrice = _slippageMode.GetExecutionPrice(order, row);
                     FillOrder(order, executionPrice, order.UnfilledQuantity, row.Timestamp);
                     break;
-                    
+
                 case OrderType.Limit:
-                     if (order.Direction == OrderDirection.Buy && row.Low <= order.LimitPrice)
+                    if (order.Direction == OrderDirection.Buy && row.Low <= order.LimitPrice)
                     {
                         decimal fillPrice = Math.Min(order.LimitPrice.Value, row.Open);
                         FillOrder(order, fillPrice, tradableQuantity, row.Timestamp);
@@ -84,7 +85,7 @@ public class Broker(ISlippageModel slippageModel, ILogger<Broker> logger, decima
                     break;
 
                 case OrderType.Stop:
-                     if (order.Direction == OrderDirection.Buy &&
+                    if (order.Direction == OrderDirection.Buy &&
                          row.High >= order.StopPrice)
                     {
                         decimal basePrice = Math.Max(order.StopPrice.Value, row.Open); 
@@ -97,6 +98,13 @@ public class Broker(ISlippageModel slippageModel, ILogger<Broker> logger, decima
                     }
                     break;
             }
+            if (order.UnfilledQuantity <= 0) filledOrders.Add(order);
+        }
+
+        foreach (var filledOrder in filledOrders)
+        {
+            _activeOrders.Remove(filledOrder);
+            _logger.LogInformation("Order filled and removed from active orders. Order ID: {OrderId}, Symbol: {Symbol}, Quantity: {Quantity}, Fill Price: {FillPrice}, Timestamp: {Timestamp}.", filledOrder.Id, filledOrder.Symbol, filledOrder.FilledQuantity, filledOrder.AverageFillPrice, row.Timestamp);
         }
     }
 

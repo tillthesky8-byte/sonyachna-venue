@@ -10,8 +10,8 @@ public class TradeRecord
     public decimal ExitPrice { get; set; }
     public decimal Quantity { get; set; }
     public OrderDirection Direction { get; set; }
-    public decimal ComissionPaid { get; set; }
+    public decimal CommissionPaid { get; set; }
     public decimal NetProfit => Direction == OrderDirection.Buy ?
-        (ExitPrice - EntryPrice) * Quantity - ComissionPaid :
-        (EntryPrice - ExitPrice) * Quantity - ComissionPaid;
+        (ExitPrice - EntryPrice) * Quantity - CommissionPaid :
+        (EntryPrice - ExitPrice) * Quantity - CommissionPaid;
 }
