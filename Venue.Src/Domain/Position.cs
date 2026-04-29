@@ -10,7 +10,5 @@ public class Position
     public bool IsShort => Quantity < 0;
     public decimal AverageEntryPrice { get; set; }
     public decimal CurrentPrice { get; set; }
-    public decimal UnrealizedPnL => IsLong ?
-        Quantity * (CurrentPrice - AverageEntryPrice) :
-        Quantity * (AverageEntryPrice - CurrentPrice);
+    public decimal UnrealizedPnL => Quantity * (CurrentPrice - AverageEntryPrice);
 }

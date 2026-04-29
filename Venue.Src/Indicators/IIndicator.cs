@@ -4,6 +4,5 @@ namespace Venue.Src.Indicators;
 public interface IIndicator
 {
     void Update(ProcessedDataRow row);
-    decimal Value { get; }
     bool IsReady { get; }
 }

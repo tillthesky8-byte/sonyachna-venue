@@ -1,12 +1,17 @@
 // Src/Core/Execution/Slippage/DefaultSlippageModel.cs
 using Venue.Src.Domain;
-using Venue.Src.Core.Execution.Slippage;
 namespace Venue.Src.Core.Execution.Slippage;
-public class DefaultSlippageModel() : ISlippageModel
+public class DefaultSlippageModel : ISlippageModel
 {
 
     public decimal SpreadPenaltyRatio { get; init; } = 0.5m; 
     public decimal MaxVolumeParticipation { get; init; } = 0.1m;
+
+    public DefaultSlippageModel(decimal spreadPenaltyRatio, decimal maxVolumeParticipation)
+    {
+        SpreadPenaltyRatio = spreadPenaltyRatio;
+        MaxVolumeParticipation = maxVolumeParticipation;
+    }
 
     public decimal GetExecutionPrice(Order order, ProcessedDataRow row)
     {

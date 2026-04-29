@@ -1,6 +1,7 @@
 // Src/Core/TradeLogging/TradeLogger.cs
 using Venue.Src.Domain;
 using Microsoft.Extensions.Logging;
+using Venue.Src.Infrastructure.Logging;
 namespace Venue.Src.Core.TradeLogging;
 public class TradeLogger(ILogger<TradeLogger> logger) : ITradeLogger
 {
@@ -26,13 +27,13 @@ public class TradeLogger(ILogger<TradeLogger> logger) : ITradeLogger
     public void RecordEquity(decimal equity, DateTime timestamp)
     {
         EquityCurve[timestamp] = equity;
-        _logger.LogInformation("Recorded equity {Equity} at {Timestamp}", equity, timestamp);
+        _logger.LogTrace("{TickTimestamp}{Timestamp}{Reset} Recorded equity {ValueColor}{Equity}{Reset} ", LoggerColors.TickTimestampColor, timestamp, LoggerColors.Reset, LoggerColors.ValueColor, equity, LoggerColors.Reset);
     }
 
     public void AppendTrades(IEnumerable<TradeRecord> trades)
     {
         Trades.AddRange(trades);
-        _logger.LogInformation("Appended {Count} trades. Total trades: {TotalCount}", trades.Count(), Trades.Count);
+        _logger.LogTrace("Appended {ValueColor}{Count}{Reset} trades. Total trades: {ValueColor}{TotalCount}{Reset}", LoggerColors.ValueColor, trades.Count(), LoggerColors.Reset, LoggerColors.ValueColor, Trades.Count, LoggerColors.Reset);
     }
 
     public string CompileReport()
@@ -43,16 +44,15 @@ public class TradeLogger(ILogger<TradeLogger> logger) : ITradeLogger
         var winCount = Trades.Count(t => t.NetProfit > 0);
         var winRate = Trades.Count > 0 ? (decimal)winCount / Trades.Count * 100 : 0;
 
-        return $@"
-        ===== Trade Report =====
-        Initial Equity: {initialEquity}
-        Final Equity: {finalEquity}
-        Return (%): {returnPct:F2}
-        Win Rate (%): {winRate:F2}
-        Total Trades: {Trades.Count}
-        Wins: {winCount}
-        Losses: {Trades.Count - winCount}
-        Max Drawdown: {MaxDrawdown}
-        ";
+        return
+                $"Initial Equity: {initialEquity:C2}\n" +
+                $"Final Equity: {finalEquity:C2}\n" + 
+                $"Total Return: {returnPct:F2}%\n" +
+                $"Max Drawdown: {MaxDrawdown:C2}\n" +
+                $"Total Trades: {Trades.Count}\n" +
+                $"Win Rate: {winRate:F2}%\n" +
+                $"Win trades: {winCount}\n" +
+                $"Loss trades: {Trades.Count - winCount}";
+
     }
 }

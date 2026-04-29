@@ -3,5 +3,5 @@ using Venue.Src.Domain;
 namespace Venue.Src.Application;
 public interface ISimulator
 {
-    void Run(IEnumerable<ProcessedDataRow> processedDataPoints);
+    List<TradeRecord> Run(IEnumerable<ProcessedDataRow> processedDataPoints);
 }

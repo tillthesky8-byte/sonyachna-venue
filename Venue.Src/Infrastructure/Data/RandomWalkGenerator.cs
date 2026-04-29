@@ -1,5 +1,4 @@
 // Src/Infrastructure/Data/RandomWalkGenerator.cs
-using System;
 using Venue.Src.Domain;
 namespace Venue.Src.Infrastructure.Data;
 public class RandomWalkGenerator()
@@ -21,7 +20,7 @@ public class RandomWalkGenerator()
                 Low = currentPrice * (1 - (decimal)_random.NextDouble() * 0.01m),
                 Close = currentPrice,
                 Spread = 0.01m,
-                Volume = _random.Next(100, 1000),
+                Volume = _random.Next(10000000, 100000000),
                 Externals = new Dictionary<string, decimal> { { "us_interest_rate", 100 } }
 
             };

@@ -1,6 +1,6 @@
 // Src/Strategies/Library/MovingAverageCrossoverStrategy/MovingAverageCrossoverConfig.cs
-namespace Venue.Src.Strategies.Library.MovingAverageCrossoverStrategy;
-public class MovingAverageCrossoverConfig
+namespace Venue.Src.Strategies.Library.MACStrategy;
+public class MACConfig
 {
     public int ShortTermPeriod { get; set; } = 10;
     public int LongTermPeriod { get; set; } = 50;

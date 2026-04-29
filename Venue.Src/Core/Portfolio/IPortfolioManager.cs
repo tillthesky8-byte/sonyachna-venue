@@ -8,4 +8,5 @@ public interface IPortfolioManager
     IEnumerable<Position> ActivePositions { get; }
     IEnumerable<TradeRecord> TradeHistory { get; }
     void OnOrderFilledEvent(object sender, OrderEvent orderEvent);
+    void UpdateMarketPrice(ProcessedDataRow ro);
 }

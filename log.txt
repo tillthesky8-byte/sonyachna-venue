@@ -1,0 +1,120 @@
+2026-04-29 12:43:27.652 trce: Venue.Src.Application.Simulator[0]                                 | ===========================================END OF TICK===========================================
+2026-04-29 12:43:27.652 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.652 trce: Venue.Src.Application.Simulator[0]                                 | 04/30/2026 10:43:27: Processing tick: O=143.90251600286087948836068413, H=144.04498117781531803928548065, L=142.83045480571130455819296177, C=143.90251600286087948836068413, V=10330783, Spread=0.01
+2026-04-29 12:43:27.652 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | 04/30/2026 10:43:27 Processing orders.
+2026-04-29 12:43:27.652 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | No active orders to process.
+2026-04-29 12:43:27.652 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Updated indicators. ShortTermMA: 142.26425289595271564825609225, LongTermMA: 146.29135465701828152972095563.
+2026-04-29 12:43:27.652 dbug: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Indicators not ready. ShortTermMA IsReady: True, LongTermMA IsReady: False. Skipping trading logic.
+2026-04-29 12:43:27.652 trce: Venue.Src.Core.TradeLogging.TradeLogger[0]                         | 04/30/2026 10:43:27 Recorded equity 10000 
+2026-04-29 12:43:27.652 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.652 trce: Venue.Src.Application.Simulator[0]                                 | ===========================================END OF TICK===========================================
+2026-04-29 12:43:27.652 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.652 trce: Venue.Src.Application.Simulator[0]                                 | 04/30/2026 11:43:27: Processing tick: O=144.91591587106764712113984689, H=145.16725418702767182997124052, L=144.34864159084056640801475051, C=144.91591587106764712113984689, V=66144974, Spread=0.01
+2026-04-29 12:43:27.652 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | 04/30/2026 11:43:27 Processing orders.
+2026-04-29 12:43:27.652 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | No active orders to process.
+2026-04-29 12:43:27.652 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Updated indicators. ShortTermMA: 142.60219032328125892069205903, LongTermMA: 146.26384588129926884154933345.
+2026-04-29 12:43:27.653 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Current position status. IsFlat: True, Position: None.
+2026-04-29 12:43:27.653 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | qty: 3, row[close]: 144.91591587106764712113984689, allocation: 500.00.
+2026-04-29 12:43:27.653 dbug: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Signal to sell. Allocation: 500.00, Quantity: 3.
+2026-04-29 12:43:27.654 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Received order submission request. Symbol: EURUSD, Type: Market, Direction: Sell, Quantity: 3, LimitPrice: (null), StopPrice: (null).
+2026-04-29 12:43:27.654 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order accepted and added to active orders. Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925, Symbol: EURUSD, Type: Market, Direction: Sell, Quantity: 3.
+2026-04-29 12:43:27.654 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Submitted sell order. Symbol: EURUSD, Quantity: 3.
+2026-04-29 12:43:27.654 trce: Venue.Src.Core.TradeLogging.TradeLogger[0]                         | 04/30/2026 11:43:27 Recorded equity 10000 
+2026-04-29 12:43:27.654 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.654 trce: Venue.Src.Application.Simulator[0]                                 | ===========================================END OF TICK===========================================
+2026-04-29 12:43:27.654 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.654 trce: Venue.Src.Application.Simulator[0]                                 | 04/30/2026 12:43:27: Processing tick: O=145.70548747115491418396158719, H=145.93729593728430826548865799, L=144.48218932162686643643781027, C=145.70548747115491418396158719, V=19576396, Spread=0.01
+2026-04-29 12:43:27.654 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | 04/30/2026 12:43:27 Processing orders.
+2026-04-29 12:43:27.654 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Evaluating order. Symbol: EURUSD, Type: Market, Direction: Sell, Quantity: 3, UnfilledQuantity: 3.
+2026-04-29 12:43:27.654 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Calculated tradable quantity for order. Tradable Quantity: 3.
+2026-04-29 12:43:27.654 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Processing market order.
+2026-04-29 12:43:27.654 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Filling order. Fill Price: 145.70048747115491418396158719, Fill Quantity: 3.
+2026-04-29 12:43:27.655 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Calculated previous filled value and new filled value for order. Previous Filled Value: 0, New Filled Value: 437.10146241346474255188476157.
+2026-04-29 12:43:27.655 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Updated unfilled quantity for order. Unfilled Quantity: 0.
+2026-04-29 12:43:27.655 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Updated average fill price for order. Average Fill Price: 145.70048747115491418396158719.
+2026-04-29 12:43:27.655 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Calculated commission for filled order. Commission: 0.03.
+2026-04-29 12:43:27.655 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Invoking order filled event. Fill Price: 145.70048747115491418396158719, Fill Quantity: 3, Commission: 0.03.
+2026-04-29 12:43:27.656 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Processing order filled event. Symbol: EURUSD, Quantity: 3, Fill Price: 145.70048747115491418396158719, Timestamp: 04/30/2026 12:43:27.
+2026-04-29 12:43:27.656 dbug: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Updated cash balance after order fill. Cash Change: -437.13146241346474255188476157, New Cash Balance: 9562.868537586535257448115238.
+2026-04-29 12:43:27.656 dbug: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Calculated quantity change for order  Quantity Change: -3.
+2026-04-29 12:43:27.656 dbug: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Created new position for symbol. Symbol: EURUSD, Quantity: -3, Average Entry Price: 145.70048747115491418396158719.
+2026-04-29 12:43:27.656 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Order fully filled.
+2026-04-29 12:43:27.656 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 68f1f91f-71e1-48f7-8d82-b0fd25aae925 Removed filled order from active orders.
+2026-04-29 12:43:27.656 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Updated market price for position. Symbol: EURUSD, Current Price: 145.70548747115491418396158719.
+2026-04-29 12:43:27.656 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Updated indicators. ShortTermMA: 142.92458224470285677319577621, LongTermMA: 146.1486555443334570052285652.
+2026-04-29 12:43:27.656 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Current position status. IsFlat: False, Position: Symbol: EURUSD, Direction: Short, Quantity: -3, AverageEntryPrice: 145.70048747115491418396158719.
+2026-04-29 12:43:27.656 trce: Venue.Src.Core.TradeLogging.TradeLogger[0]                         | 04/30/2026 12:43:27 Recorded equity 9125.752075173070514896230476 
+2026-04-29 12:43:27.656 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.656 trce: Venue.Src.Application.Simulator[0]                                 | ===========================================END OF TICK===========================================
+2026-04-29 12:43:27.656 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.656 trce: Venue.Src.Application.Simulator[0]                                 | 04/30/2026 13:43:27: Processing tick: O=144.59909985030277766695965916, H=145.41737127328176798411157109, L=143.53629670227977428339749106, C=144.59909985030277766695965916, V=26294756, Spread=0.01
+2026-04-29 12:43:27.656 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | 04/30/2026 13:43:27 Processing orders.
+2026-04-29 12:43:27.656 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | No active orders to process.
+2026-04-29 12:43:27.656 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Updated market price for position. Symbol: EURUSD, Current Price: 144.59909985030277766695965916.
+2026-04-29 12:43:27.656 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Updated indicators. ShortTermMA: 143.2132983935335067864079117, LongTermMA: 146.04127373616778460851160843.
+2026-04-29 12:43:27.656 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Current position status. IsFlat: False, Position: Symbol: EURUSD, Direction: Short, Quantity: -3, AverageEntryPrice: 145.70048747115491418396158719.
+2026-04-29 12:43:27.656 trce: Venue.Src.Core.TradeLogging.TradeLogger[0]                         | 04/30/2026 13:43:27 Recorded equity 9129.071238035626924447236261 
+2026-04-29 12:43:27.656 trce: Venue.Src.Application.Simulator[0]                                 |  
+
+similar logs ...
+
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 | 05/01/2026 16:43:27: Processing tick: O=143.73976482941256148006760956, H=144.97271095666663542565649412, L=143.06354779254101227355349487, C=143.73976482941256148006760956, V=20242148, Spread=0.01
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | 05/01/2026 16:43:27 Processing orders.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | No active orders to process.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Updated market price for position. Symbol: EURUSD, Current Price: 143.73976482941256148006760956.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Updated indicators. ShortTermMA: 142.40141704609429523875038922, LongTermMA: 142.59251607309080248771755149.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Current position status. IsFlat: False, Position: Symbol: EURUSD, Direction: Short, Quantity: -3, AverageEntryPrice: 145.70048747115491418396158719.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.TradeLogging.TradeLogger[0]                         | 05/01/2026 16:43:27 Recorded equity 9131.649243098297573007912409 
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 | ===========================================END OF TICK===========================================
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 | 05/01/2026 17:43:27: Processing tick: O=144.97031889814674478866563386, H=145.60618269244947370326984769, L=143.95538847719744447245412371, C=144.97031889814674478866563386, V=17649173, Spread=0.01
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | 05/01/2026 17:43:27 Processing orders.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | No active orders to process.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Updated market price for position. Symbol: EURUSD, Current Price: 144.97031889814674478866563386.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Updated indicators. ShortTermMA: 142.83127998371253900374998309, LongTermMA: 142.54942242534214795925564565.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Current position status. IsFlat: False, Position: Symbol: EURUSD, Direction: Short, Quantity: -3, AverageEntryPrice: 145.70048747115491418396158719.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Received order submission request. Symbol: EURUSD, Type: Market, Direction: Buy, Quantity: 6, LimitPrice: (null), StopPrice: (null).
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order accepted and added to active orders. Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694, Symbol: EURUSD, Type: Market, Direction: Buy, Quantity: 6.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Submitted flip order. Symbol: EURUSD, Quantity: 6.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.TradeLogging.TradeLogger[0]                         | 05/01/2026 17:43:27 Recorded equity 9127.957580892095023082118336 
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 | ===========================================END OF TICK===========================================
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 | 05/01/2026 18:43:27: Processing tick: O=145.27066830327847772034341910, H=146.45984656494518207043337001, L=143.95901990507281570011726303, C=145.27066830327847772034341910, V=67562856, Spread=0.01
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | 05/01/2026 18:43:27 Processing orders.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Evaluating order. Symbol: EURUSD, Type: Market, Direction: Buy, Quantity: 6, UnfilledQuantity: 6.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Calculated tradable quantity for order. Tradable Quantity: 6.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Processing market order.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Filling order. Fill Price: 145.27566830327847772034341910, Fill Quantity: 6.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Calculated previous filled value and new filled value for order. Previous Filled Value: 0, New Filled Value: 871.6540098196708663220605146.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Updated unfilled quantity for order. Unfilled Quantity: 0.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Updated average fill price for order. Average Fill Price: 145.2756683032784777203434191.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Calculated commission for filled order. Commission: 0.06.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Invoking order filled event. Fill Price: 145.27566830327847772034341910, Fill Quantity: 6, Commission: 0.06.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Processing order filled event. Symbol: EURUSD, Quantity: 6, Fill Price: 145.27566830327847772034341910, Timestamp: 05/01/2026 18:43:27.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Updated cash balance after order fill. Cash Change: -871.7140098196708663220605146, New Cash Balance: 8691.154527766864391126054723.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Calculated quantity change for order  Quantity Change: 6.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Order decreases or flips existing position. Symbol: EURUSD, Existing Quantity: -3, Quantity Change: 6.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Recorded closed trade. Symbol: EURUSD, Closed Quantity: 3, Entry Price: 145.70048747115491418396158719, Exit Price: 145.27566830327847772034341910, Commission Paid: 0.06.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Closed portion of position. Symbol: EURUSD, Closed Quantity: 3, Remaining Change: 3.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Flipped position. Symbol: EURUSD, New Quantity: 3, New Average Entry Price: 145.27566830327847772034341910.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Order fully filled.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | Order ID: 509b37c8-dadb-4a60-b1ea-a4f8e1997694 Removed filled order from active orders.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Updated market price for position. Symbol: EURUSD, Current Price: 145.27066830327847772034341910.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Updated indicators. ShortTermMA: 143.32266411513662619831080643, LongTermMA: 142.4955895694583983090787501.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Current position status. IsFlat: False, Position: Symbol: EURUSD, Direction: Long, Quantity: 3, AverageEntryPrice: 145.27566830327847772034341910.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.TradeLogging.TradeLogger[0]                         | 05/01/2026 18:43:27 Recorded equity 9126.966532676699824287084980 
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 | ===========================================END OF TICK===========================================
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 | 05/01/2026 19:43:27: Processing tick: O=146.56814862768482213063019566, H=146.98658136774487460467413680, L=145.38551265255748112880756995, C=146.56814862768482213063019566, V=88974494, Spread=0.01
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Execution.Broker.Broker[0]                          | 05/01/2026 19:43:27 Processing orders.
+2026-04-29 12:43:27.657 dbug: Venue.Src.Core.Execution.Broker.Broker[0]                          | No active orders to process.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.Portfolio.PortfolioManager[0]                       | Updated market price for position. Symbol: EURUSD, Current Price: 146.56814862768482213063019566.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Updated indicators. ShortTermMA: 143.89502646004664001031657976, LongTermMA: 142.47302836878766174508629845.
+2026-04-29 12:43:27.657 trce: Venue.Src.Strategies.Library.MACStrategy.MACStrategy[0]            | Current position status. IsFlat: False, Position: Symbol: EURUSD, Direction: Long, Quantity: 3, AverageEntryPrice: 145.27566830327847772034341910.
+2026-04-29 12:43:27.657 trce: Venue.Src.Core.TradeLogging.TradeLogger[0]                         | 05/01/2026 19:43:27 Recorded equity 9130.858973649918857517945310 
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 |  
+2026-04-29 12:43:27.657 trce: Venue.Src.Application.Simulator[0]                                 | ===========================================END OF TICK===========================================
